@@ -12,8 +12,16 @@ static void WelcomeMessage()
     Console.WriteLine("*******************************");
 }
 
-static void AskUserForOG()
+static double AskUserForOG()
 {
+    bool isValid;
+    double output = 0;
+
     Console.Write("Please enter your original gravity: ");
     string userInput = Console.ReadLine();
+    isValid = double.TryParse(userInput, out output); 
+
+    return output;
+    
+
 }
