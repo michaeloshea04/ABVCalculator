@@ -3,7 +3,7 @@ WelcomeMessage();
 AskUserForOriginalGravity();
 AskUserForFinalGravity();
 //TODO Insert Return of ABV calc
-//TODO Insert Farewell message
+FarewellMessage();
 
 Console.ReadLine();
 
@@ -74,4 +74,15 @@ static double AskUserForFinalGravity()
     return output;
 
 
+}
+
+//TODO Create data table to use in ABV lookup
+
+//TODO Create logic to retrieve ABV value
+
+static void FarewellMessage()
+{
+    Console.WriteLine("*************************************");
+    Console.WriteLine("Thanks for using the ABV Calculator!!");
+    Console.WriteLine("*************************************");
 }
