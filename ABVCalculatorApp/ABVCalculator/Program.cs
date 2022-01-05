@@ -1,9 +1,13 @@
-﻿
+﻿//***Assume static main is here*******
 WelcomeMessage();
-
-AskUserForOG();
+AskUserForOriginalGravity();
+AskUserForFinalGravity();
+//TODO Insert Return of ABV calc
+//TODO Insert Farewell message
 
 Console.ReadLine();
+
+//***Assume static main is here*******
 
 static void WelcomeMessage()
 {
@@ -12,16 +16,62 @@ static void WelcomeMessage()
     Console.WriteLine("*******************************");
 }
 
-static double AskUserForOG()
+static double AskUserForOriginalGravity()
 {
+    //variables to be used in do-while loop
     bool isValid;
     double output = 0;
 
-    Console.Write("Please enter your original gravity: ");
-    string userInput = Console.ReadLine();
-    isValid = double.TryParse(userInput, out output); 
+    do
+    {
+        Console.Write("Please enter your original gravity: ");
+        string userInput = Console.ReadLine();
+        isValid = double.TryParse(userInput, out output);
+
+        if (isValid == false)
+        {
+            Console.WriteLine("That is an invalid gravity entry.");
+            Console.WriteLine("Please try again.");
+            Console.WriteLine();
+        }
+
+    } while (isValid == false);
+
+    Console.WriteLine();
+    Console.WriteLine($"You have entered {output} as your original gravity.");
+    Console.WriteLine();
 
     return output;
     
+
+}
+
+static double AskUserForFinalGravity()
+{
+    //variables to be used in do-while loop
+    bool isValid;
+    double output = 0;
+
+    do
+    {
+        Console.Write("Please enter your final gravity: ");
+        string userInput = Console.ReadLine();
+        isValid = double.TryParse(userInput, out output);
+
+        if (isValid == false)
+        {
+            Console.WriteLine("That is an invalid gravity entry.");
+            Console.WriteLine("Please try again.");
+            Console.WriteLine();
+        }
+
+    } while (isValid == false);
+
+    Console.WriteLine();
+    Console.WriteLine($"You have entered {output} as your final gravity.");
+    Console.WriteLine();
+    
+    return output;
+
 
 }
