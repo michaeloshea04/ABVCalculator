@@ -9,5 +9,6 @@ These are the things I want to accomplish:
 * Take as inputs "Starting original gravity" and "Final Gravity"
 * Calculate the estimated ABV
 * Return the ABV on the console
+* [] Is this a task?
 
 
