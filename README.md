@@ -17,7 +17,6 @@ These are the things I want to accomplish:
 * Ask for "Final Gravity"
 * Calculate the estimated ABV
 * Return the ABV on the console
-* [] Is this a task?
 
 ### Future Ideas
 * Create required grain calculator
