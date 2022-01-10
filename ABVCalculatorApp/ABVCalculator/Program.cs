@@ -1,8 +1,23 @@
 ﻿//***Assume static main is here*******
+
+// set up some variables for calculations
+using ABVCalculator;
+
+double startingSG = 0;
+double endingSG = 0;
+
+
 WelcomeMessage();
-AskUserForOriginalGravity();
-AskUserForFinalGravity();
-//TODO Insert Return of ABV calc
+startingSG = AskUserForOriginalGravity(); // Add variable to contain starting Specific Gravity
+endingSG = AskUserForFinalGravity(); // Add variable to contain ending Specific Gravity
+
+// Call the calculator
+var abv = Tools.CalculateAbv(startingSG, endingSG);
+
+
+// Display the result of the calculation to the user
+DisplayResult();
+
 FarewellMessage();
 
 Console.ReadLine();
@@ -25,7 +40,7 @@ static double AskUserForOriginalGravity()
     do
     {
         Console.Write("Please enter your original gravity: ");
-        string userInput = Console.ReadLine();
+        string? userInput = Console.ReadLine(); // Allow the input to be nullable if the user just hits enter
         isValid = double.TryParse(userInput, out output);
 
         if (isValid == false)
@@ -55,7 +70,7 @@ static double AskUserForFinalGravity()
     do
     {
         Console.Write("Please enter your final gravity: ");
-        string userInput = Console.ReadLine();
+        string? userInput = Console.ReadLine(); // Allow the input to be nullable if the user just hits enter
         isValid = double.TryParse(userInput, out output);
 
         if (isValid == false)
@@ -76,9 +91,14 @@ static double AskUserForFinalGravity()
 
 }
 
-//TODO Create data table to use in ABV lookup
-
-//TODO Create logic to retrieve ABV value
+void DisplayResult()
+{
+    Console.WriteLine();
+    Console.WriteLine("*************************************");
+    Console.WriteLine($"* Alcohol by Volume is about {abv}%  *");
+    Console.WriteLine("*************************************");
+    Console.WriteLine();
+}
 
 static void FarewellMessage()
 {
